@@ -20,7 +20,7 @@ def create_lines(bag, nlines = lines_per_page):
     lines.append(" ".join(words))
     nlines -= 1
     if nlines ==  0: 
-        lines += ["\n"]
+        lines += [""]
         nlines = lines_per_page
     if bag:
         return lines + create_lines(bag, nlines)
