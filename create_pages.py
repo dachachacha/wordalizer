@@ -9,8 +9,8 @@ def frandom():
         ret = ret * sysrand.random()
     return ret
 
-def rshuffle(bag):
-    for i in range(sysrand.randint(1,10)):
+def rshuffle(bag,nshuf=10):
+    for i in range(sysrand.randint(1,nshuf)):
         shuffle(bag,frandom)
 
 words_per_line = 15
