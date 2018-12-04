@@ -15,7 +15,7 @@ def get_file_contents(folder):
         if avoid(i): continue
         path = os.path.join(folder,i)
         if os.path.isdir(path):
-            return get_file_contents(path)
+            tokens += get_file_contents(path)
         else:
             tokens += tokenize(open(path, encoding='utf-8').read())
     return tokens
