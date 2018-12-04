@@ -2,24 +2,12 @@ import os
 import collections
 from random import shuffle, SystemRandom
 
-sysrand = SystemRandom()
-
-def frandom():
-    ret = sysrand.random()
-    for i in range(sysrand.randint(1,100)):
-        ret = ret * sysrand.random()
-    return ret
-
-def rshuffle(bag,nshuf=10):
-    for i in range(sysrand.randint(1,nshuf)):
-        shuffle(bag,frandom)
-
 def avoid(fname):
     if fname in ['.DS_Store']: return True
     else: return False
 
 def tokenize(line):
-    return [ x.strip() for x in line.split() ]
+    return [ x.strip() for x in line.split() if x.strip() ]
 
 def get_file_contents(folder):
     tokens = []
