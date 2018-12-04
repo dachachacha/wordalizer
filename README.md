@@ -1,1 +1,1 @@
-# wordalizer
+# wordalizer, a novel
