@@ -1,11 +1,20 @@
 import sys
 from random import shuffle, SystemRandom
 
+sysrand = SystemRandom()
+
+def frandom():
+    ret = sysrand.random()
+    for i in range(sysrand.randint(1,100)):
+        ret = ret * sysrand.random()
+    return ret
+
+
 words_per_line = 15
 char_per_line = 55
 lines_per_page = 35
 bag_of_words = open('words.txt',encoding='utf-8').read().split("\n")
-shuffle(bag_of_words)
+shuffle(bag_of_words, frandom)
 cnt = 0
 line = []
 lines = []

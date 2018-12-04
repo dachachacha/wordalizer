@@ -2,10 +2,12 @@ import os
 import collections
 from random import shuffle, SystemRandom
 
+sysrand = SystemRandom()
+
 def frandom():
-    ret = SystemRandom().random()
-    for i in range(SystemRandom().randint(1,10000)):
-        ret = ret * SystemRandom().random()
+    ret = sysrand.random()
+    for i in range(sysrand.randint(1,100)):       
+        ret = ret * sysrand.random()
     return ret
 
 def avoid(fname):
@@ -46,12 +48,12 @@ for i in files.keys():
         for j in files[i]['files'].keys():
             print('\t' + j)
 
-shuffle(bag_of_words,frandom())
+shuffle(bag_of_words,frandom)
 #print(counter_of_words)
 
 keys = list(dict(counter_of_words).keys())
 counter_of_words2 = {}
-shuffle(keys,frandom())
+shuffle(keys,frandom)
 for i in keys:
     counter_of_words2[i] = counter_of_words[i]
 
