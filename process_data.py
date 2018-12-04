@@ -1,7 +1,11 @@
 import os
 import collections
-from random import shuffle
+from random import shuffle, SystemRandom
 
+def frandom():
+    ret = SystemRandom().random()
+    for i in range(SystemRandom().randint(1,10000)):
+        ret = ret * SystemRandom().random()
 
 def avoid(fname):
     if fname in ['.DS_Store']: return True
@@ -41,12 +45,12 @@ for i in files.keys():
         for j in files[i]['files'].keys():
             print('\t' + j)
 
-shuffle(bag_of_words)
+shuffle(bag_of_words,frandom())
 #print(counter_of_words)
 
 keys = list(dict(counter_of_words).keys())
 counter_of_words2 = {}
-shuffle(keys)
+shuffle(keys,frandom())
 for i in keys:
     counter_of_words2[i] = counter_of_words[i]
 
