@@ -17,7 +17,7 @@ def get_file_contents(folder):
         if os.path.isdir(path):
             return get_file_contents(path)
         else:
-            tokens.extend(tokenize(open(path, encoding='utf-8').read()))
+            tokens += tokenize(open(path, encoding='utf-8').read())
     return tokens
 
 tokens = get_file_contents('diary')
@@ -26,9 +26,9 @@ text = " ".join(tokens)
 counter = collections.Counter()
 counter.update(tokens)
 
-with open("tmp.txt","w",encoding='utf-8') as f:
-    f.write(text)
-
 import json
 with open('wordcount.json', 'w', encoding='utf-8') as fp:
     json.dump(counter, fp, indent=4, sort_keys=True, ensure_ascii=False)        
+
+with open('words.txt', 'w', encoding='utf-8') as fp:
+    fp.write(text)
