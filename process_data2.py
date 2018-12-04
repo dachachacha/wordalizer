@@ -22,7 +22,7 @@ def get_file_contents(folder):
 
 tokens = get_file_contents('diary')
 shuffle(tokens,SystemRandom().random)
-text = " ".join(tokens)
+words = " ".join(tokens)
 counter = collections.Counter()
 counter.update(tokens)
 
@@ -31,4 +31,4 @@ with open('wordcount.json', 'w', encoding='utf-8') as fp:
     json.dump(counter, fp, indent=4, sort_keys=True, ensure_ascii=False)        
 
 with open('words.txt', 'w', encoding='utf-8') as fp:
-    fp.write(text)
+    fp.write(words)
