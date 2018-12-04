@@ -1,0 +1,6 @@
+diary/
+venv/
+.*
+manage.py
+wordalizer/
+!.gitignore
