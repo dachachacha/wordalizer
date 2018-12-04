@@ -6,6 +6,7 @@ def frandom():
     ret = SystemRandom().random()
     for i in range(SystemRandom().randint(1,10000)):
         ret = ret * SystemRandom().random()
+    return ret
 
 def avoid(fname):
     if fname in ['.DS_Store']: return True
