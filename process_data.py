@@ -10,6 +10,10 @@ def frandom():
         ret = ret * sysrand.random()
     return ret
 
+def rshuffle(bag):
+    for i in range(sysrand.randint(1,5)):
+        shuffle(bag,frandom)
+
 def avoid(fname):
     if fname in ['.DS_Store']: return True
     else: return False
@@ -27,6 +31,7 @@ for i in os.listdir('./diary/'):
         sentences = [ x.strip() for x in open('diary/' + i,encoding='utf-8').readlines() ]
         files[i] =  " ".join([x.strip() for x in [ " ".join(x.split()) for x in sentences ]])
         elements = [ x.strip() for x in files[i].split(" ") ]
+        rshuffle(elements)
         counter_of_words.update(elements)
         bag_of_words.extend(elements)
     if i == 'diary_end_7_2016':
@@ -39,6 +44,7 @@ for i in os.listdir('./diary/'):
             sentences = [ x.strip() for x in open('diary/' + i + '/' + j,encoding='utf-8').readlines() ]
             files[i]['files'][j] = " ".join([ x.strip() for x in [ " ".join(x.split()) for x in sentences ]])
             elements = [ x.strip() for x in files[i]['files'][j].split(" ") ]
+            rshuffle(elements)
             bag_of_words.extend(elements)
             counter_of_words.update(elements)
 
@@ -48,12 +54,12 @@ for i in files.keys():
         for j in files[i]['files'].keys():
             print('\t' + j)
 
-shuffle(bag_of_words,frandom)
+rshuffle(bag_of_words)
 #print(counter_of_words)
 
 keys = list(dict(counter_of_words).keys())
 counter_of_words2 = {}
-shuffle(keys,frandom)
+rshuffle(keys)
 for i in keys:
     counter_of_words2[i] = counter_of_words[i]
 

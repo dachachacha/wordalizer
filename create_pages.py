@@ -9,12 +9,15 @@ def frandom():
         ret = ret * sysrand.random()
     return ret
 
+def rshuffle(bag):
+    for i in range(sysrand.randint(1,10)):
+        shuffle(bag,frandom)
 
 words_per_line = 15
 char_per_line = 55
 lines_per_page = 35
 bag_of_words = open('words.txt',encoding='utf-8').read().split("\n")
-shuffle(bag_of_words, frandom)
+rshuffle(bag_of_words)
 cnt = 0
 line = []
 lines = []
