@@ -1,6 +1,7 @@
 import os
 import collections
 from random import shuffle, SystemRandom
+sysrand = SystemRandom().random
 
 def avoid(fname):
     if fname in ['.DS_Store']: return True
@@ -21,6 +22,7 @@ def get_file_contents(folder):
     return tokens
 
 tokens = get_file_contents('diary')
+shuffle(tokens, sysrand)
 counter = collections.Counter()
 counter.update(tokens)
 

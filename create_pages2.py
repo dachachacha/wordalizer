@@ -36,6 +36,7 @@ def get_title(bag, numw = 3):
 import json
 with open('wordcount.json',encoding='utf-8') as fp:
     bag = collections.Counter(json.load(fp))
+
 flat_bag = list(bag.elements())
 shuffle(flat_bag, sysrand)
 title = " ".join(get_title(flat_bag))
