@@ -26,10 +26,6 @@ def create_lines(bag, nlines = lines_per_page):
         return lines + create_lines(bag, nlines)
     else: return lines
 
-def create_text(bag):
-    shuffle(bag, sysrand)
-    return bag
-
 def get_title(bag, numw = 3):
     if numw > 0:
         r = SystemRandom().randint(0,len(bag))
@@ -41,10 +37,9 @@ import json
 with open('wordcount.json',encoding='utf-8') as fp:
     bag = collections.Counter(json.load(fp))
 flat_bag = list(bag.elements())
-
+shuffle(flat_bag, sysrand)
 title = " ".join(get_title(flat_bag))
-words = create_text(flat_bag)
-lines = create_lines(words)
+lines = create_lines(flat_bag)
 text = "\n".join(lines)
 
 with open('text.txt','w',encoding='utf-8') as fp:
