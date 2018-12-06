@@ -30,5 +30,3 @@ import json
 with open('wordcount.json', 'w', encoding='utf-8') as fp:
     json.dump(counter, fp, indent=4, sort_keys=True, ensure_ascii=False)        
 
-with open('words.txt', 'w', encoding='utf-8') as fp:
-    fp.write(words)
