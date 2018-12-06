@@ -21,8 +21,6 @@ def get_file_contents(folder):
     return tokens
 
 tokens = get_file_contents('diary')
-shuffle(tokens,SystemRandom().random)
-words = " ".join(tokens)
 counter = collections.Counter()
 counter.update(tokens)
 
